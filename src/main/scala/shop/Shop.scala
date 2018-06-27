@@ -1,13 +1,17 @@
-import DiscountRates._
+package shop
+
+import shop.ProductTypes._
+import helper.PriceRounder
+import TaxRateCalculator._
 
 class Shop extends TaxRateCalculator with PriceRounder {
 
   case class Product(id: Int, productType: ProductType, price: Double, description: String)
 
   var products = List(
-    Product(1, ProductType.Book, 9.99, "Super cool Scala book"),
-    Product(2, ProductType.Clothing, 19.99, "Super cool Scala T-Shirt"),
-    Product(3, ProductType.EBook, 9.99, "Super cool Scala E-Book")
+    Product(1, Book, 9.99, "Super cool Scala book"),
+    Product(2, Clothing, 19.99, "Super cool Scala T-Shirt"),
+    Product(3, EBook, 9.99, "Super cool Scala E-Book")
   )
 
   def createProduct(productType: ProductType, price: Double, description: String, taxRate: TaxRate): Unit = {
@@ -22,12 +26,7 @@ class Shop extends TaxRateCalculator with PriceRounder {
       products.filter(_.id == id)
   }
 
-  def discountedPrice(product: Product): Discounted[Double] = {
+  def discountedPrice(product: Product)(implicit discountRate: Double): Double = {
       roundUp(product.price - (product.price * discountRate))
   }
-}
-
-object DiscountRates {
-  type Discounted[T] = implicit Double => T
-  def discountRate: Discounted[Double] = implicitly[Double]   
 }

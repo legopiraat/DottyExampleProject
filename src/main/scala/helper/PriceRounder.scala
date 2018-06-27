@@ -1,3 +1,5 @@
+package helper
+
 trait PriceRounder {
     
     def roundUp(price: Double) = {
