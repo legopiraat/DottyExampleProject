@@ -23,7 +23,7 @@ class Shop extends TaxRateCalculator with PriceRounder {
   }
 
   def discountedPrice(product: Product): Discounted[Double] = {
-      roundUp(product.price - (product.price * discountRate)
+      roundUp(product.price - (product.price * discountRate))
   }
 }
 
