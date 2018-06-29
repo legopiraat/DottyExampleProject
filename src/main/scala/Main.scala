@@ -6,10 +6,6 @@ object Main {
   implicit val discountRate: Double = 0.1
 
   def main(args: Array[String]): Unit = {
-      // old -> printValidation(validateInt(5, 5))
-      // old -> printValidation(validateLong(5L, 5L))
-      //printValidation(validateInt(5, 5L)) <-- Compileert niet.
-
       printValidation(validate(5, 5))
       printValidation(validate(5, 5L))
       printValidation(validate(5, 6f))
