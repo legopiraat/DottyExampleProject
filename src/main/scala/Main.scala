@@ -1,4 +1,3 @@
-import Validator._
 import DiscountRates._
 
 object Main {
@@ -6,10 +5,6 @@ object Main {
   implicit val discountRate: Double = 0.1
 
   def main(args: Array[String]): Unit = {
-      printValidation(validate(5, 5))
-      printValidation(validate(5, 5L))
-      printValidation(validate(5, 6f))
-
       val shop = new Shop()
       shop.createProduct(ProductType.Clothing, 4.12, "Super cool Scala hoodie", TaxRate.High)
 
