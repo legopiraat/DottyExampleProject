@@ -13,7 +13,7 @@ object Main {
       printValidation(validate2(5L, 5L))
       printValidation(validate2(5f, 5f))
 
-      print(new ScalaProgrammer("Gijs"))
-      print(new JavaProgrammer("Henk"))
+      printScalaProgrammer(new ScalaProgrammer("Gijs"))
+      //printScalaProgrammer(new JavaProgrammer("Henk"))
   }
 }

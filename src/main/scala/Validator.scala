@@ -14,7 +14,7 @@ object Validator {
   case class ScalaProgrammer(name: String) extends Human with ScalaDeveloper
   case class JavaProgrammer(name: String) extends Human
 
-  def print(programmer: Human & ScalaDeveloper) = {
-    println(programmer)
+  def printScalaProgrammer(programmer: Human & ScalaDeveloper) = {
+    println(s"$programmer is a Scala programmer")
   }
 }
